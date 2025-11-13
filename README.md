@@ -6,8 +6,8 @@
 - **index.html** - Pagina principale con 6 card che linkano alle sezioni
 
 ### Pagine Sezioni (vuote, pronte da riempire)
-- **sezione-casa.html** - Collezione Casa 🏠
-- **sezione-novita.html** - Novità 2024 ✨
+- **sezione-casa.html** - Linea Casa 🏠
+- **sezione-novita.html** - Natale 2025 ⛄
 - **sezione-design.html** - Design Esclusivo 🎨
 - **sezione-ecofriendly.html** - Eco-Friendly 🌿
 - **sezione-premium.html** - Premium Selection 💎
