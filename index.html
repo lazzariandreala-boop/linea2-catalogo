@@ -1,560 +1,214 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Linea 2 - Catalogo Presentazione</title>
+
+    <!-- Tailwind via CDN (per prototipi; in produzione meglio buildarlo) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Icone Phosphor -->
+    <script src="https://unpkg.com/phosphor-icons"></script>
+    
+    <!-- Stile del Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet" />
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #F5F1E8 0%, #EAE4D8 100%);
-            min-height: 100vh;
-            position: relative;
-            overflow-x: hidden;
-        }
-
-        /* Decorazioni floreali SVG */
         .leaf-decoration {
-            position: fixed;
             pointer-events: none;
             z-index: 1;
             animation: floatLeaf 6s ease-in-out infinite;
         }
 
-        /* Animazione leggera per le foglie */
         @keyframes floatLeaf {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            30% { transform: translateY(-10px) rotate(95deg); }
-        }
 
-        /* Foglia principale in basso a destra */
-        .leaf-1 {
-            bottom: 5%;
-            right: 8%;
-            width: 220px;
-            height: 220px;
-            transform: rotate(-15deg);
-            opacity: 0.18;
-        }
-
-        /* Foglie superiori */
-        .leaf-2 {
-            top: 8%;
-            left: 5%;
-            width: 160px;
-            height: 160px;
-            transform: rotate(45deg);
-            opacity: 0.12;
-            animation-delay: -2s;
-        }
-
-        .leaf-3 {
-            bottom: 35%;
-            left: 8%;
-            width: 140px;
-            height: 140px;
-            transform: rotate(-30deg);
-            opacity: 0.15;
-            animation-delay: -4s;
-        }
-
-        /* Nuove decorazioni aggiuntive */
-        .leaf-4 {
-            top: 15%;
-            right: 12%;
-            width: 100px;
-            height: 100px;
-            transform: rotate(60deg);
-            opacity: 0.1;
-            animation-delay: -1s;
-        }
-
-        .leaf-5 {
-            top: 50%;
-            right: 5%;
-            width: 130px;
-            height: 130px;
-            transform: rotate(-45deg);
-            opacity: 0.12;
-            animation-delay: -3s;
-        }
-
-        .leaf-6 {
-            bottom: 15%;
-            left: 15%;
-            width: 110px;
-            height: 110px;
-            transform: rotate(20deg);
-            opacity: 0.1;
-            animation-delay: -5s;
-        }
-
-        .leaf-7 {
-            top: 40%;
-            left: 3%;
-            width: 90px;
-            height: 90px;
-            transform: rotate(-60deg);
-            opacity: 0.08;
-            animation-delay: -2.5s;
-        }
-
-        .leaf-8 {
-            bottom: 60%;
-            right: 15%;
-            width: 95px;
-            height: 95px;
-            transform: rotate(90deg);
-            opacity: 0.09;
-            animation-delay: -4.5s;
-        }
-
-        /* Rametti decorativi piccoli */
-        .small-branch {
-            position: fixed;
-            pointer-events: none;
-            z-index: 1;
-            opacity: 0.06;
-        }
-
-        .branch-1 {
-            top: 30%;
-            right: 20%;
-            width: 80px;
-            height: 80px;
-            transform: rotate(15deg);
-        }
-
-        .branch-2 {
-            bottom: 25%;
-            left: 25%;
-            width: 70px;
-            height: 70px;
-            transform: rotate(-25deg);
-        }
-
-        /* Container principale */
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Header con logo */
-        .header {
-            text-align: center;
-            margin-bottom: 60px;
-            animation: fadeInDown 1s ease-out;
-        }
-
-        .logo-container {
-            display: inline-block;
-            background: white;
-            padding: 0px 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-            margin-bottom: 30px;
-        }
-
-        .logo-symbol {
-            height: 80px;
-            width: auto;
-        }
-
-        .subtitle {
-            font-size: 24px;
-            color: #6b6b6b;
-            font-weight: 300;
-            margin-top: 20px;
-            letter-spacing: 1px;
-        }
-
-        /* Griglia dei blocchi */
-        .catalog-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            margin-bottom: 60px;
-        }
-
-        /* Card singola */
-        .catalog-card {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-            min-height: 300px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            animation: fadeInUp 0.8s ease-out backwards;
-        }
-
-        /* Decorazioni angolari sulle card */
-        .catalog-card::after {
-            content: '';
-            position: absolute;
-            bottom: 15px;
-            right: 15px;
-            width: 40px;
-            height: 40px;
-            background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><ellipse cx="20" cy="20" rx="15" ry="6" fill="%238B7355" opacity="0.1" transform="rotate(45 20 20)"/><ellipse cx="20" cy="20" rx="12" ry="5" fill="%23A0826D" opacity="0.15" transform="rotate(-30 20 20)"/></svg>');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .catalog-card:hover::after {
-            opacity: 1;
-        }
-
-        .catalog-card:nth-child(1) { animation-delay: 0.1s; }
-        .catalog-card:nth-child(2) { animation-delay: 0.2s; }
-        .catalog-card:nth-child(3) { animation-delay: 0.3s; }
-        .catalog-card:nth-child(4) { animation-delay: 0.4s; }
-        .catalog-card:nth-child(5) { animation-delay: 0.5s; }
-        .catalog-card:nth-child(6) { animation-delay: 0.6s; }
-
-        .catalog-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, #8B7355, #A0826D);
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
-        }
-
-        .catalog-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
-        }
-
-        .catalog-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        /* Contenuto delle card */
-        .card-icon {
-            font-size: 64px;
-            margin-bottom: 20px;
-            filter: grayscale(30%);
-        }
-
-        .card-title {
-            font-size: 28px;
-            color: #1a1a1a;
-            margin-bottom: 15px;
-            font-weight: 400;
-            letter-spacing: 1px;
-        }
-
-        .card-description {
-            font-size: 16px;
-            color: #6b6b6b;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .card-cta {
-            display: inline-block;
-            padding: 12px 30px;
-            background: linear-gradient(135deg, #8B7355, #A0826D);
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            font-size: 14px;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            transition: all 0.3s ease;
-            margin-top: auto;
-        }
-
-        .card-cta:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 20px rgba(139, 115, 85, 0.4);
-        }
-
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 40px 20px;
-            color: #6b6b6b;
-            font-size: 14px;
-        }
-
-        /* Animazioni */
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+
+            30% {
+                transform: translateY(-10px) rotate(95deg);
             }
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .catalog-grid {
-                gap: 25px;
-            }
-
-            .catalog-card {
-                padding: 35px;
-                min-height: 280px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 30px 15px;
-            }
-
-            .logo-container {
-                padding: 0px 20px;
-            }
-
-            .logo-symbol {
-                height: 60px;
-            }
-
-            .subtitle {
-                font-size: 18px;
-                padding: 0 20px;
-            }
-
-            .catalog-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .catalog-card {
-                padding: 30px 25px;
-                min-height: 250px;
-            }
-
-            .card-title {
-                font-size: 24px;
-            }
-
-            .card-description {
-                font-size: 15px;
-            }
-
-            .card-icon {
-                font-size: 52px;
-            }
-
-            .leaf-1 {
-                width: 150px;
-                height: 150px;
-                bottom: 3%;
-                right: 5%;
-            }
-
-            .leaf-2, .leaf-3, .leaf-4, .leaf-5, .leaf-6, .leaf-7, .leaf-8, 
-            .branch-1, .branch-2 {
-                display: none;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .header {
-                margin-bottom: 40px;
-            }
-
-            .logo-container {
-                padding: 0px 20px;
-            }
-
-            .logo-symbol {
-                height: 50px;
-            }
-
-            .subtitle {
-                font-size: 16px;
-            }
-
-            .catalog-card {
-                padding: 25px 20px;
-            }
-
-            .card-title {
-                font-size: 22px;
-            }
+        .font-quicksand {
+            font-family: 'Quicksand', sans-serif;
         }
     </style>
 </head>
-<body>
-    <!-- Decorazioni floreali -->
-    <!-- Foglia principale grande -->
-    <svg class="leaf-decoration leaf-1" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M100 180 Q80 140, 85 100 Q90 60, 100 20 Q110 60, 115 100 Q120 140, 100 180 Z" fill="#8B7355" opacity="0.6"/>
-        <path d="M100 20 Q130 35, 140 60 Q150 85, 140 110" stroke="#8B7355" stroke-width="2" fill="none"/>
-        <path d="M100 20 Q70 35, 60 60 Q50 85, 60 110" stroke="#8B7355" stroke-width="2" fill="none"/>
-        <ellipse cx="100" cy="100" rx="8" ry="20" fill="#A0826D" opacity="0.5" transform="rotate(30 100 100)"/>
+
+<body class="font-sans min-h-screen bg-gradient-to-br from-[#F5F1E8] to-[#EAE4D8] overflow-x-hidden relative">
+
+    <!-- ============================================= FOGLIE E RAMETTI ===================================================== -->
+    <!-- Foglia 1 -->
+    <svg class="leaf-decoration fixed bottom-[5%] right-[8%] w-[100px] h-[220px] opacity-[0.18]" viewBox="0 0 200 200"
+        fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(-15deg);">
+        <path d="M100 180 Q80 140, 85 100 Q90 60, 100 20 Q110 60, 115 100 Q120 140, 100 180 Z" fill="#8B7355"
+            opacity="0.6" />
+        <path d="M100 20 Q130 35, 140 60 Q150 85, 140 110" stroke="#8B7355" stroke-width="2" fill="none" />
+        <path d="M100 20 Q70 35, 60 60 Q50 85, 60 110" stroke="#8B7355" stroke-width="2" fill="none" />
+        <ellipse cx="100" cy="100" rx="8" ry="20" fill="#A0826D" opacity="0.5" transform="rotate(30 100 100)" />
     </svg>
 
-    <!-- Foglia superiore sinistra -->
-    <svg class="leaf-decoration leaf-2" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <ellipse cx="75" cy="75" rx="60" ry="25" fill="#A0826D" opacity="0.6" transform="rotate(45 75 75)"/>
-        <ellipse cx="75" cy="75" rx="50" ry="20" fill="#8B7355" opacity="0.5" transform="rotate(-30 75 75)"/>
-        <line x1="75" y1="30" x2="75" y2="120" stroke="#8B7355" stroke-width="2" opacity="0.4"/>
+    <!-- Foglia 2 -->
+    <svg class="leaf-decoration fixed top-[8%] left-[5%] w-[160px] h-[160px] opacity-[0.12]" viewBox="0 0 150 150"
+        fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(45deg); animation-delay:-2s;">
+        <ellipse cx="75" cy="75" rx="60" ry="25" fill="#A0826D" opacity="0.6" transform="rotate(45 75 75)" />
+        <ellipse cx="75" cy="75" rx="50" ry="20" fill="#8B7355" opacity="0.5" transform="rotate(-30 75 75)" />
+        <line x1="75" y1="30" x2="75" y2="120" stroke="#8B7355" stroke-width="2" opacity="0.4" />
     </svg>
 
-    <!-- Foglia media sinistra -->
-    <svg class="leaf-decoration leaf-3" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M60 10 Q90 40, 90 70 Q90 100, 60 110 Q30 100, 30 70 Q30 40, 60 10 Z" fill="#8B7355" opacity="0.6"/>
-        <path d="M60 10 L60 110" stroke="#A0826D" stroke-width="2" opacity="0.4"/>
+    <!-- Foglia 3 -->
+    <svg class="leaf-decoration fixed bottom-[35%] left-[8%] w-[140px] h-[140px] opacity-[0.15]" viewBox="0 0 120 120"
+        fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(-30deg); animation-delay:-4s;">
+        <path d="M60 10 Q90 40, 90 70 Q90 100, 60 110 Q30 100, 30 70 Q30 40, 60 10 Z" fill="#8B7355" opacity="0.6" />
+        <path d="M60 10 L60 110" stroke="#A0826D" stroke-width="2" opacity="0.4" />
     </svg>
 
-    <!-- Foglia piccola superiore destra -->
-    <svg class="leaf-decoration leaf-4" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M50 10 Q70 30, 70 50 Q70 70, 50 90 Q30 70, 30 50 Q30 30, 50 10 Z" fill="#A0826D" opacity="0.5"/>
+    <!-- Foglia 4 -->
+    <svg class="leaf-decoration fixed top-[15%] right-[12%] w-[100px] h-[100px] opacity-[0.10]" viewBox="0 0 100 100"
+        fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(60deg); animation-delay:-1s;">
+        <path d="M50 10 Q70 30, 70 50 Q70 70, 50 90 Q30 70, 30 50 Q30 30, 50 10 Z" fill="#A0826D" opacity="0.5" />
     </svg>
 
-    <!-- Rametto medio destra -->
-    <svg class="leaf-decoration leaf-5" viewBox="0 0 130 130" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M65 10 L65 120" stroke="#8B7355" stroke-width="3" opacity="0.5"/>
-        <ellipse cx="40" cy="40" rx="20" ry="10" fill="#A0826D" opacity="0.6" transform="rotate(-30 40 40)"/>
-        <ellipse cx="90" cy="60" rx="22" ry="12" fill="#8B7355" opacity="0.6" transform="rotate(30 90 60)"/>
-        <ellipse cx="45" cy="80" rx="18" ry="9" fill="#A0826D" opacity="0.5" transform="rotate(-25 45 80)"/>
-        <ellipse cx="85" cy="100" rx="20" ry="11" fill="#8B7355" opacity="0.6" transform="rotate(35 85 100)"/>
+    <!-- Foglia 5 -->
+    <svg class="leaf-decoration fixed top-[50%] right-[5%] w-[130px] h-[130px] opacity-[0.12]" viewBox="0 0 130 130"
+        fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(-45deg); animation-delay:-3s;">
+        <path d="M65 10 L65 120" stroke="#8B7355" stroke-width="3" opacity="0.5" />
+        <ellipse cx="40" cy="40" rx="20" ry="10" fill="#A0826D" opacity="0.6" transform="rotate(-30 40 40)" />
+        <ellipse cx="90" cy="60" rx="22" ry="12" fill="#8B7355" opacity="0.6" transform="rotate(30 90 60)" />
+        <ellipse cx="45" cy="80" rx="18" ry="9" fill="#A0826D" opacity="0.5" transform="rotate(-25 45 80)" />
+        <ellipse cx="85" cy="100" rx="20" ry="11" fill="#8B7355" opacity="0.6" transform="rotate(35 85 100)" />
     </svg>
 
-    <!-- Foglia basso sinistra -->
-    <svg class="leaf-decoration leaf-6" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <ellipse cx="55" cy="55" rx="45" ry="20" fill="#8B7355" opacity="0.6" transform="rotate(60 55 55)"/>
-        <ellipse cx="55" cy="55" rx="40" ry="18" fill="#A0826D" opacity="0.5" transform="rotate(-15 55 55)"/>
+    <!-- Foglia 6 -->
+    <svg class="leaf-decoration fixed bottom-[15%] left-[15%] w-[110px] h-[110px] opacity-[0.10]" viewBox="0 0 110 110"
+        fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(20deg); animation-delay:-5s;">
+        <ellipse cx="55" cy="55" rx="45" ry="20" fill="#8B7355" opacity="0.6" transform="rotate(60 55 55)" />
+        <ellipse cx="55" cy="55" rx="40" ry="18" fill="#A0826D" opacity="0.5" transform="rotate(-15 55 55)" />
     </svg>
 
-    <!-- Foglia piccola media sinistra -->
-    <svg class="leaf-decoration leaf-7" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M45 15 Q60 30, 60 45 Q60 60, 45 75 Q30 60, 30 45 Q30 30, 45 15 Z" fill="#A0826D" opacity="0.5"/>
-        <line x1="45" y1="15" x2="45" y2="75" stroke="#8B7355" stroke-width="1.5" opacity="0.4"/>
+    <!-- Foglia 7 -->
+    <svg class="leaf-decoration fixed top-[40%] left-[3%] w-[90px] h-[90px] opacity-[0.08]" viewBox="0 0 90 90"
+        fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(-60deg); animation-delay:-2.5s;">
+        <path d="M45 15 Q60 30, 60 45 Q60 60, 45 75 Q30 60, 30 45 Q30 30, 45 15 Z" fill="#A0826D" opacity="0.5" />
+        <line x1="45" y1="15" x2="45" y2="75" stroke="#8B7355" stroke-width="1.5" opacity="0.4" />
     </svg>
 
-    <!-- Foglia media destra -->
-    <svg class="leaf-decoration leaf-8" viewBox="0 0 95 95" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <ellipse cx="47.5" cy="47.5" rx="35" ry="15" fill="#8B7355" opacity="0.5" transform="rotate(45 47.5 47.5)"/>
-        <ellipse cx="47.5" cy="47.5" rx="30" ry="13" fill="#A0826D" opacity="0.5" transform="rotate(-20 47.5 47.5)"/>
+    <!-- Foglia 8 -->
+    <svg class="leaf-decoration fixed bottom-[60%] right-[15%] w-[95px] h-[95px] opacity-[0.09]" viewBox="0 0 95 95"
+        fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(90deg); animation-delay:-4.5s;">
+        <ellipse cx="47.5" cy="47.5" rx="35" ry="15" fill="#8B7355" opacity="0.5" transform="rotate(45 47.5 47.5)" />
+        <ellipse cx="47.5" cy="47.5" rx="30" ry="13" fill="#A0826D" opacity="0.5" transform="rotate(-20 47.5 47.5)" />
     </svg>
 
-    <!-- Rametti decorativi piccoli -->
-    <svg class="small-branch branch-1" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M40 10 L40 70" stroke="#8B7355" stroke-width="2" opacity="0.6"/>
-        <ellipse cx="25" cy="25" rx="12" ry="6" fill="#A0826D" opacity="0.5" transform="rotate(-40 25 25)"/>
-        <ellipse cx="55" cy="35" rx="12" ry="6" fill="#8B7355" opacity="0.5" transform="rotate(40 55 35)"/>
-        <ellipse cx="30" cy="50" rx="10" ry="5" fill="#A0826D" opacity="0.5" transform="rotate(-35 30 50)"/>
-    </svg>
+    <!-- ============================================= CODICE PRINCIPALE ===================================================== -->
 
-    <svg class="small-branch branch-2" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <ellipse cx="35" cy="35" rx="25" ry="12" fill="#8B7355" opacity="0.6" transform="rotate(20 35 35)"/>
-        <ellipse cx="35" cy="35" rx="20" ry="10" fill="#A0826D" opacity="0.5" transform="rotate(-25 35 35)"/>
-    </svg>
+    <!-- HEADER -->
+    <header class="text-center mb-16 relative z-10">
+        <!-- Logo -->
+        <img src="./images/logo-linea2.png" alt="Linea 2 Logo" class="h-40 mx-auto pt-5">
+        <!-- Sottotitolo -->
+        <p class="text-lg md:text-md text-gray-700 font-bold mt-3 font-quicksand" data-translate="subtitle"></p>
+        <p class="text-md md:text-sm text-gray-400 font-bold mt-1 font-quicksand" data-translate="sub-subtitle"></p>
+    </header>
 
-    <div class="container">
-        <!-- Header con Logo -->
-        <header class="header">
-            <div class="logo-container">
-                <img src="./images/logo-linea2.png" 
-                     alt="Linea 2 Logo" class="logo-symbol">
-            </div>
-            <p class="subtitle" data-translate="subtitle">Upcycling · Creatività · Emozioni</p>
-        </header>
+    <!-- CONTAINER PRINCIPALE -->
+    <main class="max-w-[1400px] mx-auto px-5 md:px-10 relative z-10">
 
-        <!-- Griglia Catalogo -->
-        <div class="catalog-grid">
-            <!-- Card 1 -->
-            <a href="sezione-casa.html" class="catalog-card" style="text-decoration: none; color: inherit;">
-                <div class="card-icon">🏠</div>
-                <h2 class="card-title" data-translate="card1-title">Linea Casa</h2>
-                <p class="card-description" data-translate="card1-desc">Diamo nuova vita agli oggetti e rinnoviamo gli ambienti quotidiani con piccoli interventi di design</p>
-                <span class="card-cta" data-translate="cta-explore">Scopri la Linea Casa</span>
+        <!-- GRIGLIA CATALOGO -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+
+            <!-- CARD GENERICA -->
+            <!-- Ogni card è un link con layout flessibile -->
+            <a href="sezione-casa.html" class="bg-white rounded-2xl p-10 shadow-md hover:shadow-xl transition transform hover:-translate-y-2 flex flex-col items-center text-center">
+                <!-- Icona -->
+                <i class="ph-house text-5xl mb-5 text-gray-500"></i>
+                <!-- Titolo -->
+                <h2 class="text-2xl md:text-3xl text-gray-900 mb-3 font-semibold tracking-wide font-quicksand" data-translate="card1-title"></h2>
+                <!-- Descrizione -->
+                <p class="text-gray-600 text-base leading-relaxed mb-5 font-quicksand" data-translate="card1-desc"></p>
+                <!-- CTA -->
+                <span class="inline-block px-6 py-3 bg-gradient-to-r from-[#8B7355] to-[#A0826D] text-white rounded-full text-sm font-medium tracking-wide hover:scale-105 transition font-quicksand" data-translate="cta-explore"></span>
             </a>
 
-            <!-- Card 2 -->
-            <a href="sezione-novita.html" class="catalog-card" style="text-decoration: none; color: inherit;">
-                <div class="card-icon">⛄</div>
-                <h2 class="card-title" data-translate="card2-title">Natale 2025</h2>
-                <p class="card-description" data-translate="card2-desc">Le ultime tendenze e i prodotti più innovativi appena arrivati nel nostro catalogo</p>
-                <span class="card-cta" data-translate="cta-discover">Scopri</span>
+            <!-- CARD 2 -->
+            <a href="sezione-novita.html" class="bg-white rounded-2xl p-10 shadow-md hover:shadow-xl transition transform hover:-translate-y-2 flex flex-col items-center text-center">
+                <!-- icona -->
+                <i class="ph-snowflake text-5xl mb-5 text-gray-500"></i>
+                <!-- titolo -->
+                <h2 class="text-2xl md:text-3xl text-gray-900 mb-3 font-semibold tracking-wide font-quicksand" data-translate="card2-title"></h2>
+                <!-- Descrizione -->
+                <p class="text-gray-600 text-base leading-relaxed mb-5 font-quicksand" data-translate="card2-desc"></p>
+                <!-- CTA -->
+                <span class="inline-block px-6 py-3 bg-gradient-to-r from-[#8B7355] to-[#A0826D] text-white rounded-full text-sm font-medium tracking-wide hover:scale-105 transition font-quicksand" data-translate="cta-discover"></span>
             </a>
 
-            <!-- Card 3 -->
-            <a href="sezione-design.html" class="catalog-card" style="text-decoration: none; color: inherit;">
-                <div class="card-icon">🎨</div>
-                <h2 class="card-title" data-translate="card3-title">Design Esclusivo</h2>
-                <p class="card-description" data-translate="card3-desc">Pezzi unici realizzati da designer internazionali per ambienti ricercati e distintivi</p>
-                <span class="card-cta" data-translate="cta-view">Visualizza</span>
+            <!-- CARD 3 -->
+            <a href="sezione-design.html" class="bg-white rounded-2xl p-10 shadow-md hover:shadow-xl transition transform hover:-translate-y-2 flex flex-col items-center text-center">
+                <!-- icona -->
+                <i class="ph-paint-brush text-5xl mb-5 text-gray-500"></i>
+                <!-- titolo -->
+                <h2 class="text-2xl md:text-3xl text-gray-900 mb-3 font-semibold tracking-wide font-quicksand" data-translate="card3-title"></h2>
+                <!-- Descrizione -->
+                <p class="text-gray-600 text-base leading-relaxed mb-5 font-quicksand" data-translate="card3-desc"></p>
+                <!-- CTA -->
+                <span class="inline-block px-6 py-3 bg-gradient-to-r from-[#8B7355] to-[#A0826D] text-white rounded-full text-sm font-medium tracking-wide hover:scale-105 transition font-quicksand" data-translate="cta-view"></span>
             </a>
 
-            <!-- Card 4 -->
-            <a href="sezione-ecofriendly.html" class="catalog-card" style="text-decoration: none; color: inherit;">
-                <div class="card-icon">🌿</div>
-                <h2 class="card-title" data-translate="card4-title">Eco-Friendly</h2>
-                <p class="card-description" data-translate="card4-desc">Prodotti sostenibili realizzati con materiali eco-compatibili e processi responsabili</p>
-                <span class="card-cta" data-translate="cta-learn">Approfondisci</span>
+            <!-- CARD 4 -->
+            <a href="sezione-ecofriendly.html" class="bg-white rounded-2xl p-10 shadow-md hover:shadow-xl transition transform hover:-translate-y-2 flex flex-col items-center text-center">
+                <!-- icona -->
+                <i class="ph-leaf text-5xl mb-5 text-gray-500"></i>
+                <!-- titolo -->
+                <h2 class="text-2xl md:text-3xl text-gray-900 mb-3 font-semibold tracking-wide font-quicksand" data-translate="card4-title"></h2>
+                <!-- Descrizione -->
+                <p class="text-gray-600 text-base leading-relaxed mb-5 font-quicksand" data-translate="card4-desc"></p>
+                <!-- CTA -->
+                <span class="inline-block px-6 py-3 bg-gradient-to-r from-[#8B7355] to-[#A0826D] text-white rounded-full text-sm font-medium tracking-wide hover:scale-105 transition font-quicksand" data-translate="cta-learn"></span>
             </a>
 
-            <!-- Card 5 -->
-            <a href="sezione-premium.html" class="catalog-card" style="text-decoration: none; color: inherit;">
-                <div class="card-icon">💎</div>
-                <h2 class="card-title" data-translate="card5-title">Premium Selection</h2>
-                <p class="card-description" data-translate="card5-desc">La nostra collezione di lusso per clienti che cercano l'eccellenza assoluta</p>
-                <span class="card-cta" data-translate="cta-browse">Sfoglia</span>
+            <!-- CARD 5 -->
+            <a href="sezione-premium.html" class="bg-white rounded-2xl p-10 shadow-md hover:shadow-xl transition transform hover:-translate-y-2 flex flex-col items-center text-center">
+                <!-- icona -->
+                <i class="ph-diamond text-5xl mb-5 text-gray-500"></i>
+                <!-- titolo -->
+                <h2 class="text-2xl md:text-3xl text-gray-900 mb-3 font-semibold tracking-wide font-quicksand" data-translate="card5-title"></h2>
+                <!-- Descrizione -->
+                <p class="text-gray-600 text-base leading-relaxed mb-5 font-quicksand" data-translate="card5-desc"></p>
+                <!-- CTA -->
+                <span class="inline-block px-6 py-3 bg-gradient-to-r from-[#8B7355] to-[#A0826D] text-white rounded-full text-sm font-medium tracking-wide hover:scale-105 transition font-quicksand" data-translate="cta-browse"></span>
             </a>
 
-            <!-- Card 6 -->
-            <a href="sezione-contatti.html" class="catalog-card" style="text-decoration: none; color: inherit;">
-                <div class="card-icon">📞</div>
-                <h2 class="card-title" data-translate="card6-title">Contattaci</h2>
-                <p class="card-description" data-translate="card6-desc">Il nostro team è a tua disposizione per consulenze personalizzate e preventivi su misura</p>
-                <span class="card-cta" data-translate="cta-contact">Scrivi</span>
+            <!-- CARD 6 -->
+            <a href="sezione-contatti.html" class="bg-white rounded-2xl p-10 shadow-md hover:shadow-xl transition transform hover:-translate-y-2 flex flex-col items-center text-center">
+                <!-- icona -->
+                <i class="ph-phone text-5xl mb-5 text-gray-500"></i>
+                <!-- titolo -->
+                <h2 class="text-2xl md:text-3xl text-gray-900 mb-3 font-semibold tracking-wide font-quicksand" data-translate="card6-title"></h2>
+                <!-- Descrizione -->
+                <p class="text-gray-600 text-base leading-relaxed mb-5 font-quicksand" data-translate="card6-desc"></p>
+                <!-- CTA -->
+                <span class="inline-block px-6 py-3 bg-gradient-to-r from-[#8B7355] to-[#A0826D] text-white rounded-full text-sm font-medium tracking-wide hover:scale-105 transition font-quicksand" data-translate="cta-contact"></span>
             </a>
         </div>
+    </main>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <p>&copy; 2024 Linea 2 - <span data-translate="footer-rights">Tutti i diritti riservati</span></p>
-            <p style="margin-top: 10px; font-size: 12px;" data-translate="footer-tagline">Design elegante per presentazioni professionali</p>
-        </footer>
-    </div>
+    <!-- FOOTER -->
+    <footer class="text-center py-10 text-gray-600 text-sm relative z-10">
+        <p>&copy; 2025 Linea 2 - <span data-translate="footer-rights"></span></p>
+        <p class="mt-2 text-xs font-quicksand" data-translate="footer-tagline"></p>
+    </footer>
 
     <script>
         // Dizionario traduzioni multilingua
         const translations = {
             it: {
-                subtitle: "Oggetti che raccontano storie - Upcycling · Creatività · Emozioni",
+                "subtitle": "Upcycling · Creatività · Emozioni",
+                "sub-subtitle": "Oggetti che raccontano storie",
                 "card1-title": "Linea Casa",
                 "card1-desc": "Diamo nuova vita agli oggetti e rinnoviamo gli ambienti quotidiani con piccoli interventi di design",
                 "card2-title": "Natale 2025",
@@ -577,7 +231,7 @@
                 "footer-tagline": "Design elegante per presentazioni professionali"
             },
             en: {
-                subtitle: "Product Catalog - Official Presentation",
+                "subtitle": "Product Catalog - Official Presentation",
                 "card1-title": "Home Collection",
                 "card1-desc": "Discover our exclusive selection of products to furnish your home with style and elegance",
                 "card2-title": "2024 Novelties",
@@ -600,7 +254,7 @@
                 "footer-tagline": "Elegant design for professional presentations"
             },
             fr: {
-                subtitle: "Catalogue de Produits - Présentation Officielle",
+                "subtitle": "Catalogue de Produits - Présentation Officielle",
                 "card1-title": "Collection Maison",
                 "card1-desc": "Découvrez notre sélection exclusive de produits pour décorer votre maison avec style et élégance",
                 "card2-title": "Nouveautés 2024",
@@ -623,7 +277,7 @@
                 "footer-tagline": "Design élégant pour présentations professionnelles"
             },
             es: {
-                subtitle: "Catálogo de Productos - Presentación Oficial",
+                "subtitle": "Catálogo de Productos - Presentación Oficial",
                 "card1-title": "Colección Hogar",
                 "card1-desc": "Descubre nuestra selección exclusiva de productos para decorar tu hogar con estilo y elegancia",
                 "card2-title": "Novedades 2024",
@@ -646,7 +300,7 @@
                 "footer-tagline": "Diseño elegante para presentaciones profesionales"
             },
             de: {
-                subtitle: "Produktkatalog - Offizielle Präsentation",
+                "subtitle": "Produktkatalog - Offizielle Präsentation",
                 "card1-title": "Haus Kollektion",
                 "card1-desc": "Entdecken Sie unsere exklusive Auswahl an Produkten, um Ihr Zuhause mit Stil und Eleganz einzurichten",
                 "card2-title": "Neuheiten 2024",
@@ -704,4 +358,5 @@
         });
     </script>
 </body>
+
 </html>

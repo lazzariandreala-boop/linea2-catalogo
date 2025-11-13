@@ -3,402 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Natale 2025 - Linea 2</title>
+    <title>Linea 2 - Linea Casa</title>
+
+    <!-- Tailwind via CDN (per prototipi; in produzione meglio buildarlo) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Icone Phosphor -->
+    <script src="https://unpkg.com/phosphor-icons"></script>
+    
+    <!-- Stile del Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet" />
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #F5F1E8 0%, #EAE4D8 100%);
-            min-height: 100vh;
-            position: relative;
-            overflow-x: hidden;
-        }
-
-        /* Decorazioni floreali identiche alla home */
         .leaf-decoration {
-            position: fixed;
             pointer-events: none;
             z-index: 1;
             animation: floatLeaf 6s ease-in-out infinite;
         }
 
         @keyframes floatLeaf {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            30% { transform: translateY(-10px) rotate(95deg); }
-        }
 
-        .leaf-1 {
-            bottom: 5%;
-            right: 8%;
-            width: 220px;
-            height: 220px;
-            transform: rotate(-15deg);
-            opacity: 0.18;
-        }
-
-        .leaf-2 {
-            top: 8%;
-            left: 5%;
-            width: 160px;
-            height: 160px;
-            transform: rotate(45deg);
-            opacity: 0.12;
-            animation-delay: -2s;
-        }
-
-        .leaf-3 {
-            bottom: 35%;
-            left: 8%;
-            width: 140px;
-            height: 140px;
-            transform: rotate(-30deg);
-            opacity: 0.15;
-            animation-delay: -4s;
-        }
-
-        .leaf-4 {
-            top: 15%;
-            right: 12%;
-            width: 100px;
-            height: 100px;
-            transform: rotate(60deg);
-            opacity: 0.1;
-            animation-delay: -1s;
-        }
-
-        .leaf-5 {
-            top: 50%;
-            right: 5%;
-            width: 130px;
-            height: 130px;
-            transform: rotate(-45deg);
-            opacity: 0.12;
-            animation-delay: -3s;
-        }
-
-        .leaf-6 {
-            bottom: 15%;
-            left: 15%;
-            width: 110px;
-            height: 110px;
-            transform: rotate(20deg);
-            opacity: 0.1;
-            animation-delay: -5s;
-        }
-
-        .leaf-7 {
-            top: 40%;
-            left: 3%;
-            width: 90px;
-            height: 90px;
-            transform: rotate(-60deg);
-            opacity: 0.08;
-            animation-delay: -2.5s;
-        }
-
-        .leaf-8 {
-            bottom: 60%;
-            right: 15%;
-            width: 95px;
-            height: 95px;
-            transform: rotate(90deg);
-            opacity: 0.09;
-            animation-delay: -4.5s;
-        }
-
-        .small-branch {
-            position: fixed;
-            pointer-events: none;
-            z-index: 1;
-            opacity: 0.06;
-        }
-
-        .branch-1 {
-            top: 30%;
-            right: 20%;
-            width: 80px;
-            height: 80px;
-            transform: rotate(15deg);
-        }
-
-        .branch-2 {
-            bottom: 25%;
-            left: 25%;
-            width: 70px;
-            height: 70px;
-            transform: rotate(-25deg);
-        }
-
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Header con pulsante ritorno */
-        .header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 50px;
-            animation: fadeInDown 0.8s ease-out;
-        }
-
-        .back-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 25px;
-            background: white;
-            color: #1a1a1a;
-            text-decoration: none;
-            border-radius: 25px;
-            font-size: 16px;
-            font-weight: 500;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-        }
-
-        .back-button:hover {
-            transform: translateX(-5px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-        }
-
-        .logo-mini {
-            height: 65px;
-            width: auto;
-        }
-
-        /* Titolo sezione */
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .section-icon {
-            font-size: 80px;
-            margin-bottom: 20px;
-        }
-
-        .section-title {
-            font-size: 48px;
-            color: #1a1a1a;
-            margin-bottom: 20px;
-            font-weight: 300;
-            letter-spacing: 2px;
-        }
-
-        .section-subtitle {
-            font-size: 18px;
-            color: #6b6b6b;
-            font-weight: 300;
-            max-width: 800px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        /* Area contenuto */
-        .content-area {
-            background: white;
-            border-radius: 20px;
-            padding: 60px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-            min-height: 400px;
-            animation: fadeInUp 1.2s ease-out;
-        }
-
-        .empty-state {
-            text-align: center;
-            padding: 80px 20px;
-        }
-
-        .empty-state-icon {
-            font-size: 64px;
-            margin-bottom: 20px;
-            opacity: 0.3;
-        }
-
-        .empty-state-text {
-            font-size: 18px;
-            color: #999;
-            margin-bottom: 30px;
-        }
-
-        .placeholder-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .placeholder-item {
-            background: #f8f8f8;
-            border-radius: 15px;
-            padding: 40px 30px;
-            text-align: center;
-            border: 2px dashed #ddd;
-        }
-
-        /* Animazioni */
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+
+            30% {
+                transform: translateY(-10px) rotate(95deg);
             }
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .section-title {
-                font-size: 36px;
-            }
-
-            .content-area {
-                padding: 30px 20px;
-            }
-
-            .header {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .placeholder-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .leaf-2, .leaf-3, .leaf-4, .leaf-5, .leaf-6, .leaf-7, .leaf-8, 
-            .branch-1, .branch-2 {
-                display: none;
-            }
+        .font-quicksand {
+            font-family: 'Quicksand', sans-serif;
         }
     </style>
 </head>
-<body>
-    <!-- Decorazioni floreali (identiche alla home) -->
-    <svg class="leaf-decoration leaf-1" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M100 180 Q80 140, 85 100 Q90 60, 100 20 Q110 60, 115 100 Q120 140, 100 180 Z" fill="#8B7355" opacity="0.6"/>
-        <path d="M100 20 Q130 35, 140 60 Q150 85, 140 110" stroke="#8B7355" stroke-width="2" fill="none"/>
-        <path d="M100 20 Q70 35, 60 60 Q50 85, 60 110" stroke="#8B7355" stroke-width="2" fill="none"/>
-        <ellipse cx="100" cy="100" rx="8" ry="20" fill="#A0826D" opacity="0.5" transform="rotate(30 100 100)"/>
+<body class="font-sans min-h-screen bg-gradient-to-br from-[#F5F1E8] to-[#EAE4D8] overflow-x-hidden relative">
+
+    <!-- ============================================= FOGLIE E RAMETTI ===================================================== -->
+    <!-- Foglia 1 -->
+    <svg class="leaf-decoration fixed bottom-[5%] right-[8%] w-[100px] h-[220px] opacity-[0.18]" viewBox="0 0 200 200"
+        fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(-15deg);">
+        <path d="M100 180 Q80 140, 85 100 Q90 60, 100 20 Q110 60, 115 100 Q120 140, 100 180 Z" fill="#8B7355"
+            opacity="0.6" />
+        <path d="M100 20 Q130 35, 140 60 Q150 85, 140 110" stroke="#8B7355" stroke-width="2" fill="none" />
+        <path d="M100 20 Q70 35, 60 60 Q50 85, 60 110" stroke="#8B7355" stroke-width="2" fill="none" />
+        <ellipse cx="100" cy="100" rx="8" ry="20" fill="#A0826D" opacity="0.5" transform="rotate(30 100 100)" />
     </svg>
 
-    <svg class="leaf-decoration leaf-2" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <ellipse cx="75" cy="75" rx="60" ry="25" fill="#A0826D" opacity="0.6" transform="rotate(45 75 75)"/>
-        <ellipse cx="75" cy="75" rx="50" ry="20" fill="#8B7355" opacity="0.5" transform="rotate(-30 75 75)"/>
-        <line x1="75" y1="30" x2="75" y2="120" stroke="#8B7355" stroke-width="2" opacity="0.4"/>
+    <!-- Foglia 2 -->
+    <svg class="leaf-decoration fixed top-[8%] left-[5%] w-[160px] h-[160px] opacity-[0.12]" viewBox="0 0 150 150"
+        fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(45deg); animation-delay:-2s;">
+        <ellipse cx="75" cy="75" rx="60" ry="25" fill="#A0826D" opacity="0.6" transform="rotate(45 75 75)" />
+        <ellipse cx="75" cy="75" rx="50" ry="20" fill="#8B7355" opacity="0.5" transform="rotate(-30 75 75)" />
+        <line x1="75" y1="30" x2="75" y2="120" stroke="#8B7355" stroke-width="2" opacity="0.4" />
     </svg>
 
-    <svg class="leaf-decoration leaf-3" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M60 10 Q90 40, 90 70 Q90 100, 60 110 Q30 100, 30 70 Q30 40, 60 10 Z" fill="#8B7355" opacity="0.6"/>
-        <path d="M60 10 L60 110" stroke="#A0826D" stroke-width="2" opacity="0.4"/>
+    <!-- Foglia 3 -->
+    <svg class="leaf-decoration fixed bottom-[35%] left-[8%] w-[140px] h-[140px] opacity-[0.15]" viewBox="0 0 120 120"
+        fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(-30deg); animation-delay:-4s;">
+        <path d="M60 10 Q90 40, 90 70 Q90 100, 60 110 Q30 100, 30 70 Q30 40, 60 10 Z" fill="#8B7355" opacity="0.6" />
+        <path d="M60 10 L60 110" stroke="#A0826D" stroke-width="2" opacity="0.4" />
     </svg>
 
-    <svg class="leaf-decoration leaf-4" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M50 10 Q70 30, 70 50 Q70 70, 50 90 Q30 70, 30 50 Q30 30, 50 10 Z" fill="#A0826D" opacity="0.5"/>
+    <!-- Foglia 4 -->
+    <svg class="leaf-decoration fixed top-[15%] right-[12%] w-[100px] h-[100px] opacity-[0.10]" viewBox="0 0 100 100"
+        fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(60deg); animation-delay:-1s;">
+        <path d="M50 10 Q70 30, 70 50 Q70 70, 50 90 Q30 70, 30 50 Q30 30, 50 10 Z" fill="#A0826D" opacity="0.5" />
     </svg>
 
-    <svg class="leaf-decoration leaf-5" viewBox="0 0 130 130" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M65 10 L65 120" stroke="#8B7355" stroke-width="3" opacity="0.5"/>
-        <ellipse cx="40" cy="40" rx="20" ry="10" fill="#A0826D" opacity="0.6" transform="rotate(-30 40 40)"/>
-        <ellipse cx="90" cy="60" rx="22" ry="12" fill="#8B7355" opacity="0.6" transform="rotate(30 90 60)"/>
-        <ellipse cx="45" cy="80" rx="18" ry="9" fill="#A0826D" opacity="0.5" transform="rotate(-25 45 80)"/>
-        <ellipse cx="85" cy="100" rx="20" ry="11" fill="#8B7355" opacity="0.6" transform="rotate(35 85 100)"/>
+    <!-- Foglia 5 -->
+    <svg class="leaf-decoration fixed top-[50%] right-[5%] w-[130px] h-[130px] opacity-[0.12]" viewBox="0 0 130 130"
+        fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(-45deg); animation-delay:-3s;">
+        <path d="M65 10 L65 120" stroke="#8B7355" stroke-width="3" opacity="0.5" />
+        <ellipse cx="40" cy="40" rx="20" ry="10" fill="#A0826D" opacity="0.6" transform="rotate(-30 40 40)" />
+        <ellipse cx="90" cy="60" rx="22" ry="12" fill="#8B7355" opacity="0.6" transform="rotate(30 90 60)" />
+        <ellipse cx="45" cy="80" rx="18" ry="9" fill="#A0826D" opacity="0.5" transform="rotate(-25 45 80)" />
+        <ellipse cx="85" cy="100" rx="20" ry="11" fill="#8B7355" opacity="0.6" transform="rotate(35 85 100)" />
     </svg>
 
-    <svg class="leaf-decoration leaf-6" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <ellipse cx="55" cy="55" rx="45" ry="20" fill="#8B7355" opacity="0.6" transform="rotate(60 55 55)"/>
-        <ellipse cx="55" cy="55" rx="40" ry="18" fill="#A0826D" opacity="0.5" transform="rotate(-15 55 55)"/>
+    <!-- Foglia 6 -->
+    <svg class="leaf-decoration fixed bottom-[15%] left-[15%] w-[110px] h-[110px] opacity-[0.10]" viewBox="0 0 110 110"
+        fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(20deg); animation-delay:-5s;">
+        <ellipse cx="55" cy="55" rx="45" ry="20" fill="#8B7355" opacity="0.6" transform="rotate(60 55 55)" />
+        <ellipse cx="55" cy="55" rx="40" ry="18" fill="#A0826D" opacity="0.5" transform="rotate(-15 55 55)" />
     </svg>
 
-    <svg class="leaf-decoration leaf-7" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M45 15 Q60 30, 60 45 Q60 60, 45 75 Q30 60, 30 45 Q30 30, 45 15 Z" fill="#A0826D" opacity="0.5"/>
-        <line x1="45" y1="15" x2="45" y2="75" stroke="#8B7355" stroke-width="1.5" opacity="0.4"/>
+    <!-- Foglia 7 -->
+    <svg class="leaf-decoration fixed top-[40%] left-[3%] w-[90px] h-[90px] opacity-[0.08]" viewBox="0 0 90 90"
+        fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(-60deg); animation-delay:-2.5s;">
+        <path d="M45 15 Q60 30, 60 45 Q60 60, 45 75 Q30 60, 30 45 Q30 30, 45 15 Z" fill="#A0826D" opacity="0.5" />
+        <line x1="45" y1="15" x2="45" y2="75" stroke="#8B7355" stroke-width="1.5" opacity="0.4" />
     </svg>
 
-    <svg class="leaf-decoration leaf-8" viewBox="0 0 95 95" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <ellipse cx="47.5" cy="47.5" rx="35" ry="15" fill="#8B7355" opacity="0.5" transform="rotate(45 47.5 47.5)"/>
-        <ellipse cx="47.5" cy="47.5" rx="30" ry="13" fill="#A0826D" opacity="0.5" transform="rotate(-20 47.5 47.5)"/>
+    <!-- Foglia 8 -->
+    <svg class="leaf-decoration fixed bottom-[60%] right-[15%] w-[95px] h-[95px] opacity-[0.09]" viewBox="0 0 95 95"
+        fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(90deg); animation-delay:-4.5s;">
+        <ellipse cx="47.5" cy="47.5" rx="35" ry="15" fill="#8B7355" opacity="0.5" transform="rotate(45 47.5 47.5)" />
+        <ellipse cx="47.5" cy="47.5" rx="30" ry="13" fill="#A0826D" opacity="0.5" transform="rotate(-20 47.5 47.5)" />
     </svg>
 
-    <svg class="small-branch branch-1" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M40 10 L40 70" stroke="#8B7355" stroke-width="2" opacity="0.6"/>
-        <ellipse cx="25" cy="25" rx="12" ry="6" fill="#A0826D" opacity="0.5" transform="rotate(-40 25 25)"/>
-        <ellipse cx="55" cy="35" rx="12" ry="6" fill="#8B7355" opacity="0.5" transform="rotate(40 55 35)"/>
-        <ellipse cx="30" cy="50" rx="10" ry="5" fill="#A0826D" opacity="0.5" transform="rotate(-35 30 50)"/>
-    </svg>
+    <!-- ============================================= CODICE PRINCIPALE ===================================================== -->
 
-    <svg class="small-branch branch-2" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <ellipse cx="35" cy="35" rx="25" ry="12" fill="#8B7355" opacity="0.6" transform="rotate(20 35 35)"/>
-        <ellipse cx="35" cy="35" rx="20" ry="10" fill="#A0826D" opacity="0.5" transform="rotate(-25 35 35)"/>
-    </svg>
+  <!-- DECORAZIONI SVG (foglie e rametti) -->
+  <!-- Qui mantieni i tuoi <svg> come nel file originale -->
 
-    <div class="container">
-        <!-- Header -->
-        <div class="header">
-            <a href="index.html" class="back-button">
-                ← Torna al Catalogo
-            </a>
-            <img src="./images/logo-linea2.png" 
-                 alt="Linea 2" class="logo-mini">
-        </div>
+  <!-- CONTAINER PRINCIPALE -->
+  <div class="max-w-[1200px] mx-auto px-5 md:px-10 py-10 relative z-10">
 
-        <!-- Titolo Sezione -->
-        <div class="section-header">
-            <div class="section-icon">⛄</div>
-            <h1 class="section-title">Natale 2025</h1>
-            <p class="section-subtitle">Le ultime tendenze e i prodotti più innovativi appena arrivati nel nostro catalogo</p>
-        </div>
-
-        <!-- Area Contenuto -->
-        <div class="content-area">
-            <div class="empty-state">
-                <div class="empty-state-icon">📝</div>
-                <p class="empty-state-text">
-                    Questa sezione è pronta per essere riempita con i tuoi contenuti.
-                    <br>Aggiungi testi, immagini, gallerie, tabelle e tutto ciò che serve per presentare i tuoi prodotti.
-                </p>
-            </div>
-
-            <!-- Esempio di griglia placeholder -->
-            <div class="placeholder-grid">
-                <div class="placeholder-item">
-                    <h3>Prodotto 1</h3>
-                    <p style="color: #999; margin-top: 10px;">Inserisci qui la descrizione</p>
-                </div>
-                <div class="placeholder-item">
-                    <h3>Prodotto 2</h3>
-                    <p style="color: #999; margin-top: 10px;">Inserisci qui la descrizione</p>
-                </div>
-                <div class="placeholder-item">
-                    <h3>Prodotto 3</h3>
-                    <p style="color: #999; margin-top: 10px;">Inserisci qui la descrizione</p>
-                </div>
-            </div>
-        </div>
+    <!-- HEADER con pulsante ritorno -->
+    <div class="flex items-center justify-between mb-12 animate-fadeInDown">
+      <a href="index.html" class="font-quicksand inline-flex items-center text-sm gap-2 px-6 py-3 bg-white text-gray-900 rounded-full shadow-md hover:-translate-x-1 hover:shadow-lg transition font-bold">
+        ← <span class="ml-1"> Torna al Catalogo </span>
+      </a>
+      <img src="./images/logo-linea2.png" alt="Linea 2" class="h-20">
     </div>
+
+    <!-- SEZIONE HEADER -->
+    <div class="text-center mb-10 animate-fadeInUp">
+      <!-- Icona -->
+      <i class="ph-snowflake text-5xl mb-5 text-gray-500"></i>
+
+      <h1 class="font-quicksand font-bold text-4xl tracking-widest text-gray-900 mb-5">Natale 2025</h1>
+      <p class="font-quicksand text-lg text-gray-600 max-w-lg mx-auto leading-relaxed">
+        Le ultime tendenze e i prodotti più innovativi appena arrivati nel nostro catalogo
+      </p>
+    </div>
+
+    <!-- AREA CONTENUTO -->
+    <div class="bg-white rounded-2xl p-10 md:p-16 shadow-lg min-h-[400px] animate-fadeInUp">
+      
+      <!-- Stato vuoto -->
+      <div class="text-center py-20">
+        <div class="text-5xl opacity-30 mb-5">📝</div>
+        <p class="font-quicksand text-lg text-gray-500 mb-8">
+          Questa sezione è pronta per essere riempita con i tuoi contenuti.<br>
+          Aggiungi testi, immagini, gallerie, tabelle e tutto ciò che serve per presentare i tuoi prodotti.
+        </p>
+      </div>
+
+      <!-- Placeholder griglia -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-10">
+        <div class="bg-gray-100 rounded-xl p-8 text-center border-2 border-dashed border-gray-300">
+          <h3 class="font-quicksand text-lg font-medium">Prodotto 1</h3>
+          <p class="font-quicksand text-gray-400 mt-2">Inserisci qui la descrizione</p>
+        </div>
+        <div class="bg-gray-100 rounded-xl p-8 text-center border-2 border-dashed border-gray-300">
+          <h3 class="font-quicksand text-lg font-medium">Prodotto 2</h3>
+          <p class="font-quicksand text-gray-400 mt-2">Inserisci qui la descrizione</p>
+        </div>
+        <div class="bg-gray-100 rounded-xl p-8 text-center border-2 border-dashed border-gray-300">
+          <h3 class="font-quicksand text-lg font-medium">Prodotto 3</h3>
+          <p class="font-quicksand text-gray-400 mt-2">Inserisci qui la descrizione</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
