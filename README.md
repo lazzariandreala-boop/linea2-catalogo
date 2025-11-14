@@ -10,7 +10,7 @@
 - **sezione-novita.html** - Natale 2025 ⛄
 - **sezione-design.html** - Design Esclusivo 🎨
 - **sezione-ecofriendly.html** - Eco-Friendly 🌿
-- **sezione-premium.html** - Premium Selection 💎
+- **sezione-preventivo.html** - preventivo Selection 💎
 - **sezione-contatti.html** - Contattaci 📞
 
 ### Risorse
