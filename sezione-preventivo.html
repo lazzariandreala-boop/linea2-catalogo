@@ -136,21 +136,25 @@
     </div>
 
     <!-- AREA CONTENUTO -->
-    <div class="bg-white rounded-2xl p-10 md:p-16 shadow-lg min-h-[400px] animate-fadeInUp font-quicksand">
-
+  <div class="relative rounded-2xl p-10 md:p-16 shadow-lg min-h-[400px] animate-fadeInUp font-quicksand overflow-hidden">
+    <!-- overlay con background semi-trasparente -->
+    <div class="absolute inset-0 bg-white/60 z-0"></div>
+    
+    <!-- contenuto sopra -->
+    <div class="relative z-10">
       <form id="preventivoForm" action="https://formspree.io/f/xkgkozdr" method="POST" class="text-center space-y-6 max-w-xl mx-auto">
         <!-- Nome e Cognome -->
         <div class="flex gap-4 justify-center">
-          <input name="name" type="text" placeholder="Nome" class="shadow-4xl bg-gray-100 rounded-xl p-2 w-full min-w-0 cursor-pointer py-4" required />
-          <input name="surname" type="text" placeholder="Cognome" class="shadow-4xl bg-gray-100 rounded-xl p-2 w-full min-w-0 cursor-pointer py-4" required />
+          <input name="name" type="text" placeholder="Nome" class="shadow-4xl bg-white shadow-lg rounded-xl p-2 w-full min-w-0 cursor-pointer py-4" required />
+          <input name="surname" type="text" placeholder="Cognome" class="shadow-4xl bg-white shadow-lg rounded-xl p-2 w-full min-w-0 cursor-pointer py-4" required />
         </div>
 
         <!-- Email e Select (custom) -->
         <div class="flex gap-4 justify-center">
-          <input name="email" type="email" placeholder="Email" class="shadow-4xl bg-gray-100 rounded-xl p-2 w-full min-w-0 cursor-pointer" required />
+          <input name="email" type="email" placeholder="Email" class="shadow-4xl bg-white shadow-lg rounded-xl p-2 w-full min-w-0 cursor-pointer" required />
 
           <!-- Wrapper select: deve avere min-w-0 per permettere ellipsis -->
-          <div class="relative w-full min-w-0 shadow-4xl bg-gray-100 rounded-xl p-2">
+          <div class="relative w-full min-w-0 shadow-4xl bg-white shadow-lg rounded-xl p-2">
             <!-- Bottone-input della select -->
             <button type="button" onclick="toggleDropdown()" class="relative w-full cursor-pointer py-2 pl-2 pr-10 text-left">
               <!-- Ellipsis SOLO qui -->
@@ -165,19 +169,19 @@
             <!-- Popover arrotondato -->
             <ul id="dropdown"
               class="hidden absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-xl bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5">
-              <li onclick="selectOption(this)" class="cursor-pointer select-none py-2 pl-3 pr-9 hover:bg-gray-100">
+              <li onclick="selectOption(this)" class="cursor-pointer select-none py-2 pl-3 pr-9 hover:bg-white shadow-lg">
                 Consulenza creativa (restyling & upcycling)
               </li>
-              <li onclick="selectOption(this)" class="cursor-pointer select-none py-2 pl-3 pr-9 hover:bg-gray-100">
+              <li onclick="selectOption(this)" class="cursor-pointer select-none py-2 pl-3 pr-9 hover:bg-white shadow-lg">
                 Progetto per un angolo della casa
               </li>
-              <li onclick="selectOption(this)" class="cursor-pointer select-none py-2 pl-3 pr-9 hover:bg-gray-100">
+              <li onclick="selectOption(this)" class="cursor-pointer select-none py-2 pl-3 pr-9 hover:bg-white shadow-lg">
                 Personalizzazione di un prodotto Linea Casa
               </li>
-              <li onclick="selectOption(this)" class="cursor-pointer select-none py-2 pl-3 pr-9 hover:bg-gray-100">
+              <li onclick="selectOption(this)" class="cursor-pointer select-none py-2 pl-3 pr-9 hover:bg-white shadow-lg">
                 Kit regalo su misura
               </li>
-              <li onclick="selectOption(this)" class="cursor-pointer select-none py-2 pl-3 pr-9 hover:bg-gray-100">
+              <li onclick="selectOption(this)" class="cursor-pointer select-none py-2 pl-3 pr-9 hover:bg-white shadow-lg">
                 Altro (te lo racconto nel messaggio)
               </li>
             </ul>
@@ -185,23 +189,24 @@
         </div>
 
         <!-- Budget indicativo (opzionale) -->
-         <input name="name" type="text" placeholder="Budget indicativo (opzionale)" class="shadow-4xl bg-gray-100 rounded-xl p-2 w-full min-w-0 cursor-pointer py-4" />
+        <input name="budget" type="text" placeholder="Budget indicativo (opzionale)" class="shadow-4xl bg-white shadow-lg rounded-xl p-2 w-full min-w-0 cursor-pointer py-4" />
+        
         <!-- Messaggio (da sola) -->
-        <textarea name="messaggio" placeholder="Raccontami il tuo progetto..."class="shadow-4xl bg-gray-100 rounded-xl p-2 w-full h-32" ></textarea>
+        <textarea name="messaggio" placeholder="Raccontami il tuo progetto..." class="shadow-4xl bg-white shadow-lg rounded-xl p-2 w-full h-32"></textarea>
 
         <!-- Bottone di conferma -->
-        <button type="submit" class="px-6 py-3 bg-gradient-to-r from-[#8B7355] to-[#A0826D] text-white rounded-full 
-                 text-sm font-medium tracking-wide hover:scale-105 transition cursor-pointer">
+        <button type="submit" class="px-6 py-3 mt-6 bg-gradient-to-r from-[#8B7355] to-[#A0826D] text-white rounded-full 
+                text-sm font-medium tracking-wide hover:scale-105 transition cursor-pointer">
           Invia richiesta
         </button>
       </form>
 
-      
       <div class="flex flex-col justify-center mx-auto mt-10 -mb-5 text-xs text-center">
         <span>La consulenza personalizzata parte da € 25.</span>
         <span>Riceverai una risposta via email con una proposta su misura e il relativo preventivo.</span>
       </div>
     </div>
+  </div>
   </div>
 
 
