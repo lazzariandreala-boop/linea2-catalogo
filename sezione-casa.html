@@ -129,21 +129,20 @@
 
             <h1 class="font-quicksand font-bold text-4xl tracking-widest text-gray-900 mb-8">Linea Casa</h1>
             <p class="font-quicksand text-md text-gray-600 max-w-lg mx-auto leading-relaxed">
-                <span class="font-bold !text-lg">Creazioni & Progetti</span><br /> 
+                <span class="font-bold !text-lg">Creazioni & Progetti</span><br />
                 Pezzi unici che nascono dall’upcycling creativo, per trasformare materiali in nuove forme di design
             </p>
         </div>
 
-        <!-- AREA CONTENUTO -->
+        <!-- =============== CATALOGO PRINCIPALE =============== -->
         <div id="catalogo" style="margin-top: 80px;">
-            <!-- Placeholder griglia -->
             <div class="font-quicksand grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-16">
 
                 <!-- =============== PRIMO PRODOTTO =============== -->
                 <div class="relative rounded-xl p-8 text-center shadow-2xl h-[450px] overflow-hidden">
                     <!-- overlay con background -->
-                    <div class="absolute inset-0 bg-white bg-cover bg-center opacity-70"></div> <!-- bg-[url('./images/bg_sections.png')] -->
-                    
+                    <div class="absolute inset-0 bg-white/60 z-0"></div>
+
                     <!-- contenuto sopra -->
                     <div class="relative z-10 flex flex-col justify-between h-full">
                         <!-- Contenuto -->
@@ -154,24 +153,24 @@
                         </div>
 
                         <p class="text-gray-800">
-                            Ti aiuto a trasformare un tuo oggetto o un angolo di casa con un progetto su misura: idee, materiali e proposta di restyling personalizzata.
+                            Ti aiuto a trasformare un tuo oggetto o un angolo di casa con un progetto su misura: idee,
+                            materiali e proposta di restyling personalizzata.
                         </p>
 
                         <!-- CTA -->
                         <button class="px-6 py-3 bg-gradient-to-r from-[#8B7355] to-[#A0826D] text-white rounded-full 
-                                    text-sm font-medium tracking-wide hover:scale-105 transition cursor-pointer mx-auto mt-4"
-                                onclick="mostraConsulenza()">
+                            text-sm font-medium tracking-wide hover:scale-105 transition cursor-pointer mx-auto mt-4"
+                            onclick="mostraConsulenza()">
                             Richiedi una consulenza
                         </button>
                     </div>
                 </div>
 
-
                 <!-- =============== SECONDO PRODOTTO =============== -->
-                 <div class="relative rounded-xl p-8 text-center shadow-2xl h-[450px] overflow-hidden">
+                <div class="relative rounded-xl p-8 text-center shadow-2xl h-[450px] overflow-hidden">
                     <!-- overlay con background -->
-                    <div class="absolute inset-0 bg-white bg-cover bg-center opacity-70"></div>
-                    
+                    <div class="absolute inset-0 bg-white/60 z-0"></div>
+
                     <!-- contenuto sopra -->
                     <div class="relative z-10 flex flex-col justify-between h-full">
                         <!-- Contenuto -->
@@ -181,23 +180,24 @@
                         </div>
 
                         <p class="text-gray-800">
-                            Kit artigianale con candela profumata e piccoli accessori rigenerati, pensato per creare un angolo relax in casa.
+                            Kit artigianale con candela profumata e piccoli accessori rigenerati, pensato per creare un
+                            angolo relax in casa.
                         </p>
 
                         <!-- CTA -->
                         <button class="px-6 py-3 bg-gradient-to-r from-[#8B7355] to-[#A0826D] text-white rounded-full 
-                                    text-sm font-medium tracking-wide hover:scale-105 transition cursor-pointer mx-auto mt-4"
-                                onclick="mostraConsulenza()">
+                            text-sm font-medium tracking-wide hover:scale-105 transition cursor-pointer mx-auto mt-4"
+                            onclick="mostraConsulenza()">
                             Scopri
                         </button>
                     </div>
                 </div>
 
                 <!-- =============== TERZO PRODOTTO =============== -->
-                 <div class="relative rounded-xl p-8 text-center shadow-2xl h-[450px] overflow-hidden">
+                <div class="relative rounded-xl p-8 text-center shadow-2xl h-[450px] overflow-hidden">
                     <!-- overlay con background -->
-                    <div class="absolute inset-0 bg-white bg-cover bg-center opacity-70"></div>
-                    
+                    <div class="absolute inset-0 bg-white/60 z-0"></div>
+
                     <!-- contenuto sopra -->
                     <div class="relative z-10 flex flex-col justify-between h-full">
                         <!-- Contenuto -->
@@ -207,13 +207,15 @@
                         </div>
 
                         <p class="text-gray-800">
-                            Tessuti scelti tra le vie di Parigi, trasformati in piccoli sachet che profumano di passeggiate, colori d’autunno e attimi raccolti. Un dettaglio delicato che porta in casa un frammento di viaggio.
+                            Tessuti scelti tra le vie di Parigi, trasformati in piccoli sachet che profumano di
+                            passeggiate, colori d'autunno e attimi raccolti. Un dettaglio delicato che porta in casa un
+                            frammento di viaggio.
                         </p>
 
                         <!-- CTA -->
                         <button class="px-6 py-3 bg-gradient-to-r from-[#8B7355] to-[#A0826D] text-white rounded-full 
-                                    text-sm font-medium tracking-wide hover:scale-105 transition cursor-pointer mx-auto mt-4"
-                                onclick="mostraConsulenza()">
+                            text-sm font-medium tracking-wide hover:scale-105 transition cursor-pointer mx-auto mt-4"
+                            onclick="mostraConsulenza()">
                             Esplora
                         </button>
                     </div>
@@ -221,85 +223,78 @@
             </div>
         </div>
 
-        <div id="consulenza" class="font-quicksand hidden flex flex-col justify-center w-full">
-            <!-- immagine -->
-            <img src="./images/consulenza_creativa.png" alt="Richiesta consulenza" 
-                 class="mx-auto rounded-2xl w-[500px] max-w-full shadow-[0_0_20px_5px_rgba(0,0,0,0.3)]"/>
-
-            <!-- CTA -->
-            <div class="flex flex-col md:flex-row items-center mx-auto gap-5 mt-12 w-full md:w-auto">
-                <button class="px-6 py-3 bg-gradient-to-r from-[#8B7355] to-[#A0826D] text-white rounded-full
-                            text-sm font-medium tracking-wide hover:scale-105 transition cursor-pointer"
-                        onclick="richiediPreventivo()">
-                Richiedi un preventivo su misura
-                </button>
-                <button class="px-6 py-3 bg-gradient-to-r from-[#8B7355] to-[#A0826D] text-white rounded-full 
-                            text-sm font-medium tracking-wide hover:scale-105 transition cursor-pointer"
-                        onclick="tornaCatalogo()">
-                ← <span class="ml-3"> Linea Casa </span>
-                </button>
-            </div>
-        </div>
-
-        <div id="preventivo" class="hidden bg-white rounded-2xl p-10 md:p-16 shadow-lg min-h-[450px] animate-fadeInUp">
-            <!-- Placeholder griglia -->
+        <!-- =============== SEZIONE PREVENTIVO =============== -->
+        <div id="preventivo"
+            class="hidden bg-white/60 rounded-2xl p-10 md:p-16 shadow-lg min-h-[450px] animate-fadeInUp">
             <div class="font-quicksand grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-16">
 
                 <!-- =============== PRIMO PRODOTTO =============== -->
-                <div class="bg-white rounded-xl p-8 text-center 
-                            shadow-2xl h-[450px] flex flex-col justify-between"> <!-- shadow-[0_0_10px_1px_rgb(200,170,130)] -->
-  
-                    <!-- Contenuto -->
-                    <div>
-                        <h3 class="text-lg font-semibold">CONSULENZA PIPPO</h3>
-                        <p class="mt-12 text-gray-800"> Pippo </p>
-                    </div>
+                <div class="relative rounded-xl p-8 text-center shadow-2xl h-[450px] overflow-hidden">
+                    <!-- overlay con background -->
+                    <div class="absolute inset-0 bg-white/60 z-0"></div>
 
-                    <!-- CTA -->
-                    <button class="px-6 py-3 bg-gradient-to-r from-[#8B7355] to-[#A0826D] text-white rounded-full 
-                                    text-sm font-medium tracking-wide hover:scale-105 transition cursor-pointer mx-auto"
+                    <!-- contenuto sopra -->
+                    <div class="relative z-10 flex flex-col justify-between h-full">
+                        <!-- Contenuto -->
+                        <div>
+                            <h3 class="text-lg font-semibold">CONSULENZA PIPPO</h3>
+                            <p class="mt-12 text-gray-800"> Pippo </p>
+                        </div>
+
+                        <!-- CTA -->
+                        <button class="px-6 py-3 bg-gradient-to-r from-[#8B7355] to-[#A0826D] text-white rounded-full 
+                            text-sm font-medium tracking-wide hover:scale-105 transition cursor-pointer mx-auto"
                             onclick="mostraConsulenza()">
-                        Richiedi un Pippo
-                    </button>
+                            Richiedi un Pippo
+                        </button>
+                    </div>
                 </div>
 
                 <!-- =============== SECONDO PRODOTTO =============== -->
-                <div class="bg-white rounded-xl p-8 text-center 
-                            shadow-2xl h-[450px] flex flex-col justify-between">
-                    <!-- Contenuto -->
-                     <div>
-                         <h3 class="text-lg font-semibold">MINI Pippo</h3>
-                         <p class="mt-12 text-gray-800">Pippo </p>
-                     </div>     
+                <div class="relative rounded-xl p-8 text-center shadow-2xl h-[450px] overflow-hidden">
+                    <!-- overlay con background -->
+                    <div class="absolute inset-0 bg-white/60 z-0"></div>
 
-                    <!-- CTA -->
-                    <button class="px-6 py-3 bg-gradient-to-r from-[#8B7355] to-[#A0826D] text-white rounded-full 
-                                   text-sm font-medium tracking-wide hover:scale-105 transition cursor-pointer mx-auto">
-                        Scopri Pippo
-                    </button>
+                    <!-- contenuto sopra -->
+                    <div class="relative z-10 flex flex-col justify-between h-full">
+                        <!-- Contenuto -->
+                        <div>
+                            <h3 class="text-lg font-semibold">MINI Pippo</h3>
+                            <p class="mt-12 text-gray-800">Pippo </p>
+                        </div>
+
+                        <!-- CTA -->
+                        <button class="px-6 py-3 bg-gradient-to-r from-[#8B7355] to-[#A0826D] text-white rounded-full 
+                            text-sm font-medium tracking-wide hover:scale-105 transition cursor-pointer mx-auto">
+                            Scopri Pippo
+                        </button>
+                    </div>
                 </div>
 
                 <!-- =============== TERZO PRODOTTO =============== -->
-                <div class="bg-white rounded-xl p-8 text-center 
-                            shadow-2xl h-[450px] flex flex-col justify-between">
-                
-                    <div>
-                        <h3 class="text-lg font-semibold">SACHET PIPPO</h3>
-                        <p class="mt-12 text-gray-800"> Pippo</p>
-                    </div>
-                
-                    <!-- CTA -->
-                    <button
-                        class="px-6 py-3 bg-gradient-to-r from-[#8B7355] to-[#A0826D] text-white rounded-full 
-                               text-sm font-medium tracking-wide hover:scale-105 transition cursor-pointer mx-auto">
-                        Esplora Pippo
-                    </button>
-                </div>
-                </div>
-        </div>
+                <div class="relative rounded-xl p-8 text-center shadow-2xl h-[450px] overflow-hidden">
+                    <!-- overlay con background -->
+                    <div class="absolute inset-0 bg-white/60 z-0"></div>
 
+                    <!-- contenuto sopra -->
+                    <div class="relative z-10 flex flex-col justify-between h-full">
+                        <!-- Contenuto -->
+                        <div>
+                            <h3 class="text-lg font-semibold">SACHET PIPPO</h3>
+                            <p class="mt-12 text-gray-800"> Pippo</p>
+                        </div>
+
+                        <!-- CTA -->
+                        <button class="px-6 py-3 bg-gradient-to-r from-[#8B7355] to-[#A0826D] text-white rounded-full 
+                            text-sm font-medium tracking-wide hover:scale-105 transition cursor-pointer mx-auto">
+                            Esplora Pippo
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    
+
     <!-- ==================== SEZIONE DI SCRIPTING ==================== -->
     <script>
         function mostraConsulenza() {
@@ -321,4 +316,5 @@
         }
     </script>
 </body>
+
 </html>
